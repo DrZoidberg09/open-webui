@@ -157,7 +157,7 @@ def get_rf(
                     device=DEVICE_TYPE,
                     trust_remote_code=RAG_RERANKING_MODEL_TRUST_REMOTE_CODE,
                     backend=CROSS_ENCODER_BACKEND,
-                    model_kwargs=CROSS_ENCODER_KWARGS
+                    model_kwargs={"file_name": "onnx/model_q4.onnx", "provider": "ROCMExecutionProvider", "logLevel": "verbose"}
                 )
             except Exception as e:
                 log.error(f"CrossEncoder: {e}")
