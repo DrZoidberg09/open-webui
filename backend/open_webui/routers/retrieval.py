@@ -117,6 +117,7 @@ def get_ef(
                 get_model_path(embedding_model, auto_update),
                 device=DEVICE_TYPE,
                 trust_remote_code=RAG_EMBEDDING_MODEL_TRUST_REMOTE_CODE,
+                provider="ROCMExecutionProvider",
             )
         except Exception as e:
             log.debug(f"Error loading SentenceTransformer: {e}")
@@ -150,6 +151,7 @@ def get_rf(
                     get_model_path(reranking_model, auto_update),
                     device=DEVICE_TYPE,
                     trust_remote_code=RAG_RERANKING_MODEL_TRUST_REMOTE_CODE,
+                    provider="ROCMExecutionProvider",
                 )
             except Exception as e:
                 log.error(f"CrossEncoder: {e}")
